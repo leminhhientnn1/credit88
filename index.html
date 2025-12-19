@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Credit88 – So sánh khoản vay online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Credit88 – So sánh các nền tảng vay online: Cashonline, Mazilla, Credy, Finllo, Finami, Creditnice, Cashspace, Binixo, Credilo. Đăng ký online, duyệt nhanh, giải ngân trong ngày (tùy hồ sơ)." />
+  <link rel="icon" type="image/png" href="favicon_vay_tien.png" />
+
+  <style>
+    :root{
+      --green:#16a34a;
+      --green-dark:#0f766e;
+      --green-soft:#ecfdf3;
+      --accent:#f97316;
+
+      --text:#022c22;
+      --muted:#4b5563;
+      --danger:#b91c1c;
+
+      --bg: radial-gradient(circle at top left, #ccfbf1 0%, #99f6e4 45%, #5eead4 100%);
+      --card:#ffffff;
+
+      --radius:18px;
+      --shadow:0 12px 28px rgba(15, 23, 42, 0.14);
+      --border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a{color:inherit;text-decoration:none}
+
+    .page{
+      max-width:1120px;
+      margin:0 auto;
+      padding: 1.15rem 0.85rem 3rem;
+    }
+
+    /* ===== HEADER ===== */
+    header{
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      color:#f9fafb;
+      border-radius: 24px;
+      padding: 1.35rem 1.35rem;
+      box-shadow: 0 18px 40px rgba(22, 163, 74, 0.42);
+      position: relative;
+      overflow:hidden;
+      margin-bottom: 1.05rem;
+    }
+    header::after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(255,255,255,.26), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(34,197,94,.40), transparent 60%);
+      opacity:.95;
+      pointer-events:none;
+    }
+    .header-inner{position:relative;z-index:1}
+
+    .brand-row{
+      display:flex;
+      align-items:center;
+      gap:.65rem;
+      margin-bottom:.55rem;
+    }
+    .brand-logo{
+      width:34px;height:34px;border-radius:999px;
+      background: rgba(255,255,255,.18);
+      border:1px solid rgba(187,247,208,.75);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;
+      font-size:.95rem;
+      flex: 0 0 auto;
+    }
+    .brand-name{
+      font-weight:700;
+      letter-spacing:.05em;
+      font-size:.95rem;
+      text-transform:uppercase;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      background: rgba(6,95,70,.52);
+      padding:.15rem .75rem;
+      border-radius:999px;
+      font-size:.78rem;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      margin: .15rem 0 .6rem;
+    }
+    .eyebrow-dot{width:7px;height:7px;border-radius:999px;background:#bbf7d0}
+
+    h1{
+      font-size: clamp(1.45rem, 4.2vw, 2.05rem);
+      font-weight: 800;
+      line-height:1.2;
+      margin-bottom:.55rem;
+    }
+    .header-sub{
+      max-width: 760px;
+      font-size: .96rem;
+      opacity:.95;
+    }
+
+    .header-highlights{
+      display:flex;flex-wrap:wrap;
+      gap:.55rem;
+      margin-top:.85rem;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      font-size:.84rem;
+      padding:.28rem .7rem;
+      border-radius:999px;
+      background: rgba(236,253,245,.14);
+      border: 1px solid rgba(187,247,208,.65);
+      white-space:nowrap;
+    }
+    .badge span{font-size:1.05rem}
+
+    .header-cta-row{
+      margin-top: 1rem;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.65rem;
+      align-items:center;
+    }
+    .btn-primary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.45rem;
+      padding:.62rem 1.1rem;
+      border-radius:999px;
+      background: var(--accent);
+      color:#111827;
+      font-weight:800;
+      border:none;
+      cursor:pointer;
+      font-size:.95rem;
+      box-shadow: 0 14px 30px rgba(124, 45, 18, 0.35);
+    }
+    .btn-ghost{
+      border-radius:999px;
+      padding:.58rem 1rem;
+      border:1px solid rgba(209,250,229,.9);
+      font-size:.9rem;
+      background: rgba(5,46,22,.34);
+      color:#ecfdf5;
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+    }
+
+    /* ===== NOTICE ===== */
+    .notice{
+      background: var(--green-soft);
+      border-radius: 16px;
+      padding: .75rem .9rem;
+      font-size: .86rem;
+      border: 1px solid #bbf7d0;
+      display:flex;
+      gap:.65rem;
+      align-items:flex-start;
+      margin-bottom: .95rem;
+    }
+    .notice strong{color:var(--danger)}
+    .notice-icon{font-size:1.05rem;margin-top:1px}
+
+    /* ===== GRID: 2 CỘT MOBILE ===== */
+    .offer-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .65rem;
+      align-items: stretch;
+      margin-bottom: 1.35rem;
+    }
+    @media (max-width: 360px){
+      .offer-grid{ grid-template-columns: 1fr; }
+    }
+    @media (min-width: 900px){
+      .offer-grid{ gap: 1.2rem; }
+    }
+
+    /* ===== CARD ===== */
+    .offer-card{
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: .8rem .8rem .75rem;
+      box-shadow: var(--shadow);
+      border: var(--border);
+      display:flex;
+      flex-direction:column;
+      gap: .55rem;
+      overflow:hidden;
+      height: 100%;
+    }
+
+    /* Header trong card: GRID để tag không đè chữ */
+    .offer-header{
+      display:grid;
+      grid-template-columns: 38px 1fr auto;
+      gap:.55rem;
+      align-items:start;
+    }
+
+    .offer-logo{
+      width:38px;height:38px;border-radius:999px;
+      background: radial-gradient(circle at 30% 20%, #bbf7d0, #16a34a);
+      display:flex;align-items:center;justify-content:center;
+      color:#052e16;
+      font-weight:900;
+      font-size:.95rem;
+      flex: 0 0 auto;
+    }
+
+    .offer-title h2{
+      font-size:.92rem;
+      font-weight: 900;
+      line-height:1.2;
+
+      display:-webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+
+    .offer-sub{
+      font-size:.72rem;
+      color: var(--muted);
+      line-height:1.25;
+      margin-top:.12rem;
+
+      display:-webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+
+      /* giữ chiều cao cố định để 2 cột thẳng nhau */
+      min-height: calc(1.25em * 3);
+    }
+
+    .offer-tag{
+      position: static;
+      font-size: 0.68rem;
+      padding: 0.12rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.10);
+      border: 1px dashed rgba(22, 163, 74, 0.55);
+      color: var(--green-dark);
+      white-space: nowrap;
+      margin-top: .05rem;
+      align-self:start;
+      max-width: 100%;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* pill: xuống dòng được */
+    .offer-features{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.35rem;
+      font-size:.7rem;
+    }
+    .pill{
+      background: var(--green-soft);
+      border-radius: 999px;
+      padding: 0.18rem 0.45rem;
+      border: 1px solid #bbf7d0;
+      display:inline-flex;
+      align-items:center;
+      gap:.35rem;
+      line-height:1.2;
+      white-space: normal;
+    }
+    .pill-dot{
+      width:6px;height:6px;border-radius:999px;background:#16a34a;
+      flex: 0 0 auto;
+    }
+
+    .offer-list{
+      list-style:none;
+      font-size:.73rem;
+      color: var(--muted);
+    }
+    .offer-list li{
+      margin-left:.9rem;
+      margin-top:.12rem;
+    }
+    .offer-list li::before{
+      content:"• ";
+      color: var(--green-dark);
+      margin-left:-.9rem;
+      position: relative;
+      left:-.1rem;
+    }
+
+    /* footer trong card: luôn đẩy CTA xuống đáy */
+    .offer-footer{
+      margin-top:auto;
+      display:flex;
+      flex-direction:column;
+      gap:.35rem;
+      padding-top:.15rem;
+    }
+
+    .btn-offer{
+      display:block;
+      width:100%;
+      text-align:center;
+      padding: .55rem .6rem;
+      border-radius: 14px;
+      border:none;
+      background: var(--green-dark);
+      color:#f9fafb;
+      font-size: .82rem;
+      font-weight: 900;
+      cursor:pointer;
+    }
+    .offer-note{
+      font-size: .7rem;
+      color: var(--muted);
+    }
+
+    /* ===== COMPARISON ===== */
+    .comparison{
+      background: rgba(236, 252, 245, 0.92);
+      border-radius: 18px;
+      border: 1px solid #bbf7d0;
+      padding: 1rem 1.05rem;
+      font-size: 0.85rem;
+      overflow-x:auto;
+      margin-bottom: 1.2rem;
+    }
+    .comparison h2{
+      font-size: 0.98rem;
+      margin-bottom: 0.75rem;
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+    th, td{
+      padding: 0.55rem 0.6rem;
+      text-align:left;
+      font-size: 0.82rem;
+    }
+    th{
+      background:#bbf7d0;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    tr:nth-child(even) td{background:#f0fdf4}
+    tr:nth-child(odd) td{background:#fff}
+    .tag-good{
+      background:#dcfce7;
+      border-radius:999px;
+      padding:.05rem .6rem;
+      font-size:.78rem;
+      display:inline-block;
+      border:1px solid #22c55e;
+      text-align:center;
+      white-space:nowrap;
+    }
+
+    /* ===== FAQ & TERMS ===== */
+    .section-box{
+      background:#fff;
+      border-radius:18px;
+      border:1px solid #e2e8f0;
+      padding: 1rem 1.05rem;
+      font-size: 0.88rem;
+      margin-bottom: 1.05rem;
+    }
+    .section-box h2{
+      font-size: 0.98rem;
+      margin-bottom: 0.7rem;
+    }
+    details{
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      padding: 0.65rem 0.75rem;
+      background: #fff;
+    }
+    details + details{margin-top: 0.6rem}
+    summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight: 800;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    summary::-webkit-details-marker{display:none}
+    .summary-label{
+      display:flex;
+      align-items:center;
+      gap:.45rem;
+    }
+    .summary-icon{
+      width:18px;height:18px;border-radius:999px;
+      border:1px solid #16a34a;
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:.7rem;color:#16a34a;
+      flex:0 0 auto;
+    }
+    .summary-arrow{font-size:1rem;color:#6b7280}
+    details[open] .summary-arrow{transform: rotate(90deg)}
+    details p, details ul{
+      margin-top: .55rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    details ul{padding-left: 1rem}
+
+    footer{
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    footer a{
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <div class="brand-row">
+          <div class="brand-logo">LC</div>
+          <div class="brand-name">Credit88 Credit</div>
+        </div>
+
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          So sánh khoản vay online
+        </div>
+
+        <h1>So sánh khoản vay online – nhận tiền nhanh</h1>
+        <p class="header-sub">
+          Credit88 tổng hợp các nền tảng vay online như Cashonline, Mazilla, Credy, Finllo, Finami, Creditnice, Cashspace, Binixo, Credilo.
+          Đăng ký 100% online, xét duyệt tự động, giải ngân về tài khoản ngân hàng (tùy hồ sơ).
+        </p>
+
+        <div class="header-highlights">
+          <div class="badge"><span>✓</span> Thủ tục online, tiết kiệm thời gian</div>
+          <div class="badge"><span>⏱</span> Duyệt nhanh 5–15 phút*</div>
+          <div class="badge"><span>💳</span> Giải ngân qua tài khoản ngân hàng</div>
+        </div>
+
+        <div class="header-cta-row">
+          <a href="#offers" class="btn-primary">Bắt đầu so sánh <span>↓</span></a>
+          <a href="#comparison" class="btn-ghost">Bảng so sánh <span>→</span></a>
+          <a href="#faq" class="btn-ghost">FAQ &amp; Điều khoản <span>?</span></a>
+        </div>
+      </div>
+    </header>
+
+    <section class="notice">
+      <div class="notice-icon">ℹ️</div>
+      <div>
+        <strong>Lưu ý:</strong> Credit88 không phải là đơn vị cho vay tiền. Website chỉ đóng vai trò trung gian giới thiệu &amp; so sánh.
+        Trước khi ký hợp đồng, hãy đọc kỹ điều khoản, lãi suất, phí phạt trả chậm và các chi phí khác trên website chính thức của đối tác.
+      </div>
+    </section>
+
+    <!-- OFFERS -->
+    <section id="offers" class="offer-grid">
+
+      <article class="offer-card">
+        <div class="offer-header">
+          <div class="offer-logo">C</div>
+          <div class="offer-title">
+            <h2>Cashonline</h2>
+            <div class="offer-sub">Vay nhanh online – linh hoạt cho người mới</div>
+          </div>
+          <div class="offer-tag">Phổ biến</div>
+        </div>
+        <div class="offer-features">
+          <div class="pill"><span class="pill-dot"></span> ~10–20 triệu*</div>
+          <div class="pill"><span class="pill-dot"></span> 3–12 tháng*</div>
+          <div class="pill"><span class="pill-dot"></span> Duyệt tự động</div>
+          <div class="pill"><span class="pill-dot"></span> Chuyển khoản nhanh</div>
+        </div>
+        <ul class="offer-list">
+          <li>Đăng ký online, không cần thế chấp.</li>
+          <li>Hỗ trợ nhiều ngân hàng tại Việt Nam.</li>
+        </ul>
+        <div class="offer-footer">
+          <a href="https://rdr.pdlsd.net/in/offer/8508?aid=111713" target="_blank" rel="nofollow noopener noreferrer" class="btn-offer">Đăng ký →</a>
+          <div class="offer-note">Phù hợp: cần tiền gấp trong ngày.</div>
+        </div>
+      </article>
+
+      <article class="offer-card">
+        <div class="offer-header">
+          <div class="offer-logo">M</div>
+          <div class="offer-title">
+            <h2>Mazilla</h2>
+            <div class="offer-sub">So sánh nhiều đơn vị cho vay trong 1 lần đăng ký</div>
+          </div>
+          <div class="offer-tag">Đa đối tác</div>
+        </div>
+        <div class="offer-features">
+          <div class="pill"><span class="pill-dot"></span> Tới 20 triệu*</div>
+          <div class="pill"><span class="pill-dot"></span> Linh hoạt</div>
+          <div class="pill"><span class="pill-dot"></span> Nhiều đối tác</div>
+          <div class="pill"><span class="pill-dot"></span> Tỷ lệ duyệt cao</div>
+        </div>
+        <ul class="offer-list">
+          <li>1 form – nhiều gợi ý khoản vay.</li>
+          <li>Tiết kiệm thời gian lựa chọn.</li>
+        </ul>
+        <div class="offer-footer">
+          <a href="https://rdr.pdlsd.net/in/offer/2930?aid=111713" target="_blank" rel="nofollow noopener noreferrer" class="btn-offer">Xem ưu đãi →</a>
+          <div class="offer-note">Phù hợp: muốn so sánh nhanh.</div>
+        </div>
+      </article>
+
+      <article class="offer-card">
+        <div class="offer-header">
+          <div class="offer-logo">Cr</div>
+          <div class="offer-title">
+            <h2>Credy</h2>
+            <div class="offer-sub">Thủ tục đơn giản, giải ngân trong ngày*</div>
+          </div>
+          <div class="offer-tag">Đơn giản</div>
+        </div>
+        <div class="offer-features">
+          <div class="pill"><span class="pill-dot"></span> Đến 15 triệu*</div>
+          <div class="pill"><span class="pill-dot"></span> 3–6 tháng*</div>
+          <div class="pill"><span class="pill-dot"></span> Duyệt nhanh</div>
+          <div class="pill"><span class="pill-dot"></span> Hồ sơ online</div>
+        </div>
+        <ul class="offer-list">
+          <li>CMND/CCCD + tài khoản ngân hàng.</li>
+          <li>Không thế chấp, không bảo lãnh.</li>
+        </ul>
+        <div class="offer-footer">
+          <a href="https://rdr.pdlsd.net/in/offer/2988?aid=111713" target="_blank" rel="nofollow noopener noreferrer" class="btn-offer">Đăng ký →</a>
+          <div class="offer-note">Phù hợp: khoản vay vừa phải.</div>
+        </div>
+      </article>
+
+      <article class="offer-card">
+        <div class="offer-header">
+          <div class="offer-logo">F</div>
+          <div class="offer-title">
+            <h2>Finllo</h2>
+            <div class="offer-sub">Khoản vay linh hoạt cho chi tiêu ngắn hạn</div>
+          </div>
+          <div class="offer-tag">Linh hoạt</div>
+        </div>
+        <div class="offer-features">
+          <div class="pill"><span class="pill-dot"></span> ~8–15 triệu*</div>
+          <div class="pill"><span class="pill-dot"></span> Ngắn &amp; trung hạn</div>
+          <div class="pill"><span class="pill-dot"></span> Trả góp theo kỳ</div>
+          <div class="pill"><span class="pill-dot"></span> Tất toán sớm*</div>
+        </div>
+        <ul class="offer-list">
+          <li>Phù hợp chi tiêu đột xuất.</li>
+          <li>Chủ động hạn mức theo khả năng.</li>
+        </ul>
+        <div class="offer-footer">
+          <a href="https://rdr.pdlsd.net/in/offer/2981?aid=111713" target="_blank" rel="nofollow noopener noreferrer" class="btn-offer">Đăng ký →</a>
+          <div class="offer-note">Phù hợp: chi tiêu ngắn hạn.</div>
+        </div>
+      </article>
+
+      <article class="offer-card">
+        <div class="offer-header">
+          <div class="offer-logo">Fa</div>
+          <div class="offer-title">
+            <h2>Finami</h2>
+            <div class="offer-sub">Gợi ý khoản vay theo hồ sơ tài chính và nhu cầu</div>
+          </div>
+          <div class="offer-tag">Cá nhân hoá</div>
+        </div>
+        <div class="offer-features">
+          <div class="pill"><span class="pill-dot"></span> Nhiều đối tác*</div>
+          <div class="pill"><span class="pill-dot"></span> Tư vấn theo nhu cầu</div>
+          <div class="pill"><span class="pill-dot"></span> Hạn mức linh hoạt</div>
+          <div class="pill"><span class="pill-dot"></span> Online 100%</div>
+        </div>
+        <ul class="offer-list">
+          <li>Gợi ý nhiều lựa chọn phù hợp.</li>
+          <li>Giúp tăng cơ hội được duyệt.</li>
+        </ul>
+        <div class="offer-footer">
+          <a href="https://rdr.pdlsd.net/in/offer/3430?aid=111713" target="_blank" rel="nofollow noopener noreferrer" class="btn-offer">Xem gợi ý →</a>
+          <div class="offer-note">Phù hợp: muốn nhiều lựa chọn.</div>
+        </div>
+      </article>
+
+      <article class="offer-card">
+        <div class="offer-header">
+          <div class="offer-logo">Cn</div>
+          <div class="offer-title">
+            <h2>Creditnice</h2>
+            <div class="offer-sub">Giao diện dễ dùng, thông tin rõ ràng cho người mới</div>
+          </div>
+          <div class="offer-tag">Thân thiện</div>
+        </div>
+        <div class="offer-features">
+          <div class="pill"><span class="pill-dot"></span> Đến 10–15 triệu*</div>
+          <div class="pill"><span class="pill-dot"></span> 3–12 tháng*</div>
+          <div class="pill"><span class="pill-dot"></span> Dễ đăng ký</div>
+          <div class="pill"><span class="pill-dot"></span> Minh bạch*</div>
+        </div>
+        <ul class="offer-list">
+          <li>Phù hợp người vay lần đầu.</li>
+          <li>Hỗ trợ đăng ký 24/7.</li>
+        </ul>
+        <div class="offer-footer">
+          <a href="https://rdr.pdlsd.net/in/offer/6312?aid=111713" target="_blank" rel="nofollow noopener noreferrer" class="btn-offer">Đăng ký →</a>
+          <div class="offer-note">Phù hợp: người mới vay online.</div>
+        </div>
+      </article>
+
+      <article class="offer-card">
+        <div class="offer-header">
+          <div class="offer-logo">Cs</div>
+          <div class="offer-title">
+            <h2>Cashspace</h2>
+            <div class="offer-sub">Cổng kết nối nhiều công ty tài chính, tăng cơ hội duyệt</div>
+          </div>
+          <div class="offer-tag">Nhiều lựa chọn</div>
+        </div>
+        <div class="offer-features">
+          <div class="pill"><span class="pill-dot"></span> Đến 20 triệu*</div>
+          <div class="pill"><span class="pill-dot"></span> Linh hoạt</div>
+          <div class="pill"><span class="pill-dot"></span> Nhiều đối tác</div>
+          <div class="pill"><span class="pill-dot"></span> Duyệt tốt*</div>
+        </div>
+        <ul class="offer-list">
+          <li>Gửi hồ sơ đến nhiều đơn vị.</li>
+          <li>Nhận phản hồi nhanh.</li>
+        </ul>
+        <div class="offer-footer">
+          <a href="https://rdr.pdlsd.net/in/offer/3182?aid=111713" target="_blank" rel="nofollow noopener noreferrer" class="btn-offer">Đăng ký →</a>
+          <div class="offer-note">Phù hợp: tăng cơ hội được duyệt.</div>
+        </div>
+      </article>
+
+      <article class="offer-card">
+        <div class="offer-header">
+          <div class="offer-logo">B</div>
+          <div class="offer-title">
+            <h2>Binixo</h2>
+            <div class="offer-sub">Cổng trung gian nhiều công ty tài chính, đa dạng gợi ý</div>
+          </div>
+          <div class="offer-tag">Đa dạng</div>
+        </div>
+        <div class="offer-features">
+          <div class="pill"><span class="pill-dot"></span> Đến 20 triệu*</div>
+          <div class="pill"><span class="pill-dot"></span> Linh hoạt</div>
+          <div class="pill"><span class="pill-dot"></span> Nhiều đối tác</div>
+          <div class="pill"><span class="pill-dot"></span> Duyệt tốt*</div>
+        </div>
+        <ul class="offer-list">
+          <li>Nhận nhiều gợi ý khoản vay.</li>
+          <li>Tăng cơ hội phù hợp hồ sơ.</li>
+        </ul>
+        <div class="offer-footer">
+          <a href="https://rdr.pdlsd.net/in/offer/2785?aid=111713" target="_blank" rel="nofollow noopener noreferrer" class="btn-offer">Đăng ký →</a>
+          <div class="offer-note">Phù hợp: muốn nhiều lựa chọn.</div>
+        </div>
+      </article>
+
+      <article class="offer-card">
+        <div class="offer-header">
+          <div class="offer-logo">Cl</div>
+          <div class="offer-title">
+            <h2>Credilo</h2>
+            <div class="offer-sub">Đăng ký đơn giản, dành cho người mới tìm hiểu vay online</div>
+          </div>
+          <div class="offer-tag">Thân thiện</div>
+        </div>
+        <div class="offer-features">
+          <div class="pill"><span class="pill-dot"></span> Đến 10–15 triệu*</div>
+          <div class="pill"><span class="pill-dot"></span> 3–12 tháng*</div>
+          <div class="pill"><span class="pill-dot"></span> Online 100%</div>
+          <div class="pill"><span class="pill-dot"></span> Dễ đăng ký</div>
+        </div>
+        <ul class="offer-list">
+          <li>Không thế chấp, không bảo lãnh.</li>
+          <li>Hỗ trợ đăng ký nhanh.</li>
+        </ul>
+        <div class="offer-footer">
+          <a href="https://rdr.pdlsd.net/in/offer/2929?aid=111713" target="_blank" rel="nofollow noopener noreferrer" class="btn-offer">Đăng ký →</a>
+          <div class="offer-note">Phù hợp: lần đầu vay online.</div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- COMPARISON -->
+    <section id="comparison" class="comparison">
+      <h2>Bảng so sánh nhanh các khoản vay*</h2>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Đơn vị</th>
+              <th>Ước lượng hạn mức</th>
+              <th>Ước lượng kỳ hạn</th>
+              <th>Hình thức</th>
+              <th>Phù hợp với ai?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Cashonline</td><td>~10–20 triệu*</td><td>3–12 tháng*</td><td>Vay tiền mặt qua tài khoản</td><td><span class="tag-good">Cần tiền gấp trong ngày</span></td></tr>
+            <tr><td>Mazilla</td><td>Đa dạng theo đối tác*</td><td>Linh hoạt</td><td>Nền tảng so sánh nhiều đơn vị</td><td><span class="tag-good">Muốn so sánh nhiều bên</span></td></tr>
+            <tr><td>Credy</td><td>Đến ~15 triệu*</td><td>3–6 tháng*</td><td>Vay tiêu dùng cá nhân</td><td><span class="tag-good">Khoản vay vừa phải</span></td></tr>
+            <tr><td>Finllo</td><td>~8–15 triệu*</td><td>Ngắn &amp; trung hạn</td><td>Vay trả góp linh hoạt</td><td><span class="tag-good">Chi tiêu ngắn hạn</span></td></tr>
+            <tr><td>Finami</td><td>Tuỳ hồ sơ*</td><td>Linh hoạt</td><td>Nền tảng gợi ý khoản vay</td><td><span class="tag-good">Muốn nhiều lựa chọn</span></td></tr>
+            <tr><td>Creditnice</td><td>Đến ~15 triệu*</td><td>3–12 tháng*</td><td>Vay online cho người mới</td><td><span class="tag-good">Lần đầu vay online</span></td></tr>
+            <tr><td>Cashspace</td><td>Đến ~20 triệu*</td><td>Linh hoạt</td><td>Cổng trung gian nhiều công ty tài chính</td><td><span class="tag-good">Tăng cơ hội được duyệt</span></td></tr>
+            <tr><td>Binixo</td><td>Đến ~20 triệu*</td><td>Linh hoạt</td><td>Cổng trung gian nhiều đối tác</td><td><span class="tag-good">Muốn đa dạng lựa chọn</span></td></tr>
+            <tr><td>Credilo</td><td>Đến ~15 triệu*</td><td>3–12 tháng*</td><td>Vay online đơn giản</td><td><span class="tag-good">Người mới vay online</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:0.6rem; color:#6b7280;">
+        *Thông tin hạn mức, kỳ hạn, thời gian duyệt… chỉ mang tính tham khảo và có thể thay đổi theo thời điểm/hồ sơ.
+        Vui lòng kiểm tra thông tin chính xác trên website đối tác trước khi ký hợp đồng.
+      </p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-box">
+      <h2>Câu hỏi thường gặp (FAQ)</h2>
+
+      <details>
+        <summary>
+          <span class="summary-label"><span class="summary-icon">?</span> Credit88 có phải là công ty cho vay tiền không?</span>
+          <span class="summary-arrow">›</span>
+        </summary>
+        <p>Không.Credit88 là website trung gian giới thiệu &amp; so sánh. Khi bấm “Đăng ký”, bạn sẽ được chuyển sang website đối tác để hoàn tất hồ sơ.</p>
+      </details>
+
+      <details>
+        <summary>
+          <span class="summary-label"><span class="summary-icon">?</span> Tôi có phải trả phí khi đăng ký qua Loan Credit không?</span>
+          <span class="summary-arrow">›</span>
+        </summary>
+        <p> Credit99 không yêu cầu bạn thanh toán phí để truy cập nội dung hoặc bấm đăng ký. Các khoản lãi/phí (nếu có) do đối tác áp dụng theo hợp đồng riêng.</p>
+      </details>
+
+      <details>
+        <summary>
+          <span class="summary-label"><span class="summary-icon">?</span> Điều kiện cơ bản để được xét duyệt là gì?</span>
+          <span class="summary-arrow">›</span>
+        </summary>
+        <p>Mỗi đối tác có quy định riêng, nhưng thường cần CMND/CCCD còn hiệu lực, số điện thoại, tài khoản ngân hàng chính chủ và khả năng trả nợ.</p>
+      </details>
+
+      <details>
+        <summary>
+          <span class="summary-label"><span class="summary-icon">?</span> Nếu trả chậm hoặc không trả đúng hạn thì sao?</span>
+          <span class="summary-arrow">›</span>
+        </summary>
+        <p>Bạn có thể bị tính phí/lãi phạt và ảnh hưởng lịch sử tín dụng. Hãy cân nhắc kỹ và ưu tiên thanh toán đúng hạn.</p>
+      </details>
+    </section>
+
+    <!-- TERMS -->
+    <section id="terms" class="section-box">
+      <h2>Điều khoản sử dụng &amp; giới hạn trách nhiệm</h2>
+      <p style="color:#4b5563; margin-bottom:0.55rem;">
+        Khi truy cập và sử dụng Loan Credit, bạn đồng ý:
+      </p>
+      <ul style="padding-left:1rem; color:#4b5563;">
+        <li><strong>Thông tin tham khảo:</strong> nội dung chỉ minh hoạ, có thể thay đổi theo thời điểm/hồ sơ.</li>
+        <li><strong>Không tư vấn tài chính cá nhân:</strong> bạn tự đánh giá nhu cầu và khả năng chi trả.</li>
+        <li><strong>Hợp đồng giữa bạn và đối tác:</strong> quyền/nghĩa vụ phát sinh thuộc về bạn và bên cho vay.</li>
+        <li><strong>Liên kết ngoài:</strong> nút “Đăng ký” dẫn tới website bên thứ ba; Loan Credit không kiểm soát nội dung/bảo mật của họ.</li>
+        <li><strong>Bảo mật:</strong> hãy kiểm tra tên miền và https trước khi nhập thông tin trên website đối tác.</li>
+        <li><strong>Khuyến nghị:</strong> chỉ vay trong khả năng chi trả; tránh sử dụng vốn vay cho hoạt động rủi ro cao.</li>
+      </ul>
+    </section>
+
+    <footer>
+      © <span id="year"></span> – Loan Credit – Trang so sánh khoản vay online.  
+      Loan Credit không phải là ngân hàng hay công ty tài chính.  
+      Xem <a href="#faq">FAQ</a> và <a href="#terms">Điều khoản</a>.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+                                                      </html>
